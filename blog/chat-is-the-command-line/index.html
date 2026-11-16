@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat is the command line of AI | Siva Dheeraj</title>
+<meta name="description" content="Why the text box won, and why the future belongs to artifacts you can touch, not transcripts you scroll.">
+<link rel="canonical" href="https://sivadheeraj5356.github.io/blog/chat-is-the-command-line/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:ital,wght@0,400;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='5' fill='%2317150F'/%3E%3C/svg%3E">
+<style>
+:root{--paper:#FFFFFF;--ink:#17150F;--ink2:#232014;--muted:#6E6A5E;--line:#E8E4DA}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Sora',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--ink);color:var(--paper)}
+a{color:inherit}
+.nav{max-width:1060px;margin:0 auto;padding:26px 40px 0;display:flex;justify-content:space-between;align-items:baseline}
+.nav .who{font-size:14px;font-weight:700;letter-spacing:-.01em;text-decoration:none}
+.nav .links a{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);text-decoration:none;margin-left:22px;transition:color .2s}
+.nav .links a:hover{color:var(--ink)}
+.nav .links a.on{color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 40px}
+@media(max-width:820px){.nav{padding:20px 24px 0}.wrap{padding:0 24px}}
+
+.art{max-width:700px;margin:0 auto;padding:clamp(44px,8vh,84px) 0 20px}
+.crumb{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:.06em}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--ink)}
+.art h1{margin-top:22px;font-size:clamp(28px,3vw,38px);font-weight:800;letter-spacing:-.025em;line-height:1.12}
+.art .stand{margin-top:16px;font-size:16.5px;line-height:1.6;color:var(--muted)}
+.art .rule{margin:34px 0 0;border:0;border-top:1px solid var(--line)}
+.art .body p{margin-top:22px;font-size:16px;line-height:1.78;color:var(--ink2)}
+.art .body h2{margin-top:38px;font-size:16px;font-weight:700;letter-spacing:-.01em}
+.sketch{margin-top:22px;border:1px solid var(--line);padding:20px 22px 4px;background:#FCFBF8}
+.sketch .sklabel{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.sketch p{margin-top:10px !important;font-size:15px !important;line-height:1.7 !important}
+.foot{max-width:700px;margin:0 auto;padding:40px 0 60px}
+.foot .sig{font-size:15px;font-weight:700;letter-spacing:-.01em}
+.foot .sig span{color:var(--muted);font-weight:400}
+.foot .back{display:inline-block;margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);text-decoration:none}
+.foot .back:hover{color:var(--ink)}
+.nextprev{display:flex;justify-content:space-between;gap:24px;margin-top:26px;border-top:1px solid var(--line);padding-top:22px}
+.nextprev a{font-size:13.5px;color:var(--muted);text-decoration:none;max-width:46%;line-height:1.5}
+.nextprev a:hover{color:var(--ink)}
+.nextprev a .k{font-family:'JetBrains Mono',monospace;font-size:11px;display:block;margin-bottom:4px}
+.nextprev .nx{text-align:right;margin-left:auto}
+</style>
+</head>
+<body>
+<div class="nav"><a class="who" href="/about/">Siva Dheeraj</a><div class="links"><a href="/about/">About</a><a href="/blog/" class="on">Blog</a><a href="/portfolio/">Work</a></div></div>
+<div class="wrap"><div class="art">
+<div class="crumb"><a href="/blog/">NOTES ON HUMAN-AI INTERACTION</a> &middot; 01 / 10</div>
+<h1>Chat is the command line of AI</h1>
+<p class="stand">Why the text box won, and why the future belongs to artifacts you can touch, not transcripts you scroll.</p>
+<hr class="rule">
+<div class="body">
+<p>Every computing era starts with a text box. The terminal won the early decades not because anyone loved typing commands, but because it was universal: one interface, infinite programs, zero design cost per new capability. Chat won AI the same way. A text box can front any model, any task, any domain. Nobody had to design anything, and that is exactly why everything shipped as a chat window.</p>
+<p>But it is worth remembering who terminals were actually for. The GUI did not beat the command line by making prompts friendlier. It won by making the state of the system visible and directly manipulable. You stopped describing what you wanted in words and started pointing at the thing itself.</p>
+<p>AI is sitting in its own 1983. The transcript is not the work. When I ask an agent to compare flights, the work is a table of options with tradeoffs, not four hundred words of prose I have to parse back into a table in my head. When it drafts a plan, the work is a plan: something I can reorder, strike through, initial. Chat collapses all of that into scrollback, and scrollback is where work goes to be forgotten.</p>
+<p>The shape of what comes next: artifacts first, conversation as metadata. The document, the itinerary, the diff, the plan - that is the interface. The conversation that produced it hangs off the side, like version history. You should never have to scroll up to find what the AI made for you. It should just be there, current and editable, and your edits to it should count as instructions.</p>
+<div class="sketch"><span class="sklabel">Interface sketch</span><p>A document agent whose chat lives in a margin, not the main window. Every edit you make to the artifact - a deleted paragraph, a moved row, a renamed heading - is captured as intent rather than keystrokes, and the next regeneration respects it. The transcript is demoted to a sidebar called "how we got here." Nobody misses it.</p></div>
+<p>Chat will not die. Terminals did not. It will become what the terminal became: the power tool underneath, not the interface in front.</p>
+</div>
+</div>
+<div class="foot">
+<div class="sig">Siva Dheeraj <span>&middot; November 2026</span></div>
+<a class="back" href="/blog/">&larr; All ten essays</a>
+<div class="nextprev"><a class="nx" href="/blog/software-that-knocks/"><span class="k">02 &rarr;</span>Software that knocks</a></div>
+</div>
+</div>
+</body>
+</html>

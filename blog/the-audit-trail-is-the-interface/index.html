@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The audit trail is the interface | Siva Dheeraj</title>
+<meta name="description" content="When AI works while you are not looking, the review screen becomes the whole product.">
+<link rel="canonical" href="https://sivadheeraj5356.github.io/blog/the-audit-trail-is-the-interface/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:ital,wght@0,400;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='5' fill='%2317150F'/%3E%3C/svg%3E">
+<style>
+:root{--paper:#FFFFFF;--ink:#17150F;--ink2:#232014;--muted:#6E6A5E;--line:#E8E4DA}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Sora',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--ink);color:var(--paper)}
+a{color:inherit}
+.nav{max-width:1060px;margin:0 auto;padding:26px 40px 0;display:flex;justify-content:space-between;align-items:baseline}
+.nav .who{font-size:14px;font-weight:700;letter-spacing:-.01em;text-decoration:none}
+.nav .links a{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);text-decoration:none;margin-left:22px;transition:color .2s}
+.nav .links a:hover{color:var(--ink)}
+.nav .links a.on{color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 40px}
+@media(max-width:820px){.nav{padding:20px 24px 0}.wrap{padding:0 24px}}
+
+.art{max-width:700px;margin:0 auto;padding:clamp(44px,8vh,84px) 0 20px}
+.crumb{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:.06em}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--ink)}
+.art h1{margin-top:22px;font-size:clamp(28px,3vw,38px);font-weight:800;letter-spacing:-.025em;line-height:1.12}
+.art .stand{margin-top:16px;font-size:16.5px;line-height:1.6;color:var(--muted)}
+.art .rule{margin:34px 0 0;border:0;border-top:1px solid var(--line)}
+.art .body p{margin-top:22px;font-size:16px;line-height:1.78;color:var(--ink2)}
+.art .body h2{margin-top:38px;font-size:16px;font-weight:700;letter-spacing:-.01em}
+.sketch{margin-top:22px;border:1px solid var(--line);padding:20px 22px 4px;background:#FCFBF8}
+.sketch .sklabel{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.sketch p{margin-top:10px !important;font-size:15px !important;line-height:1.7 !important}
+.foot{max-width:700px;margin:0 auto;padding:40px 0 60px}
+.foot .sig{font-size:15px;font-weight:700;letter-spacing:-.01em}
+.foot .sig span{color:var(--muted);font-weight:400}
+.foot .back{display:inline-block;margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);text-decoration:none}
+.foot .back:hover{color:var(--ink)}
+.nextprev{display:flex;justify-content:space-between;gap:24px;margin-top:26px;border-top:1px solid var(--line);padding-top:22px}
+.nextprev a{font-size:13.5px;color:var(--muted);text-decoration:none;max-width:46%;line-height:1.5}
+.nextprev a:hover{color:var(--ink)}
+.nextprev a .k{font-family:'JetBrains Mono',monospace;font-size:11px;display:block;margin-bottom:4px}
+.nextprev .nx{text-align:right;margin-left:auto}
+</style>
+</head>
+<body>
+<div class="nav"><a class="who" href="/about/">Siva Dheeraj</a><div class="links"><a href="/about/">About</a><a href="/blog/" class="on">Blog</a><a href="/portfolio/">Work</a></div></div>
+<div class="wrap"><div class="art">
+<div class="crumb"><a href="/blog/">NOTES ON HUMAN-AI INTERACTION</a> &middot; 03 / 10</div>
+<h1>The audit trail is the interface</h1>
+<p class="stand">When AI works while you are not looking, the review screen becomes the whole product.</p>
+<hr class="rule">
+<div class="body">
+<p>An agent that works overnight has a problem no chat window can solve: you were not there. The unit of interaction shifts from the message to the morning after. What did it do? What changed? What do I need to reverse?</p>
+<p>Email already taught us how this goes. People do not read digests; they triage them. So design for triage: every item one glance, one decision, one undo. A digest that takes twenty minutes to audit is a product failure wearing a productivity costume.</p>
+<h2>The reversibility gradient</h2>
+<p>Not all actions deserve the same gate. Deleting a draft is cheap and reversible; sending it is neither. An agent should act freely at the cheap end of the gradient, report clearly, and hold its breath at the expensive end. Deciding where an action sits on that gradient, for this user, in this context, is most of what "judgment" means in an agent.</p>
+<h2>Replay, not logs</h2>
+<p>When something looks wrong, "show me why" should return the three decisions behind the outcome in plain language - not a stack trace, not a chain-of-thought dump. The question a user is really asking is never "what did you compute." It is "what did you assume."</p>
+<p>Trust is not built by the agent being right. It is built by the review loop being boring. The hundredth morning you scan the digest and find nothing surprising is worth more than the first morning it did something brilliant. Boring is the goal. Boring is what gets an agent promoted from tool to colleague.</p>
+</div>
+</div>
+<div class="foot">
+<div class="sig">Siva Dheeraj <span>&middot; November 2026</span></div>
+<a class="back" href="/blog/">&larr; All ten essays</a>
+<div class="nextprev"><a href="/blog/software-that-knocks/"><span class="k">&larr; 02</span>Software that knocks</a><a class="nx" href="/blog/voice-is-not-a-transcript/"><span class="k">04 &rarr;</span>Voice is not a transcript</a></div>
+</div>
+</div>
+</body>
+</html>

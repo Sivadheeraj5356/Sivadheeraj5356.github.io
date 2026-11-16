@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generative UI should keep its landmarks | Siva Dheeraj</title>
+<meta name="description" content="Interfaces generated fresh for every task have a problem nobody prices in: nothing stays put.">
+<link rel="canonical" href="https://sivadheeraj5356.github.io/blog/generative-ui-landmarks/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:ital,wght@0,400;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='5' fill='%2317150F'/%3E%3C/svg%3E">
+<style>
+:root{--paper:#FFFFFF;--ink:#17150F;--ink2:#232014;--muted:#6E6A5E;--line:#E8E4DA}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Sora',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--ink);color:var(--paper)}
+a{color:inherit}
+.nav{max-width:1060px;margin:0 auto;padding:26px 40px 0;display:flex;justify-content:space-between;align-items:baseline}
+.nav .who{font-size:14px;font-weight:700;letter-spacing:-.01em;text-decoration:none}
+.nav .links a{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);text-decoration:none;margin-left:22px;transition:color .2s}
+.nav .links a:hover{color:var(--ink)}
+.nav .links a.on{color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 40px}
+@media(max-width:820px){.nav{padding:20px 24px 0}.wrap{padding:0 24px}}
+
+.art{max-width:700px;margin:0 auto;padding:clamp(44px,8vh,84px) 0 20px}
+.crumb{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:.06em}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--ink)}
+.art h1{margin-top:22px;font-size:clamp(28px,3vw,38px);font-weight:800;letter-spacing:-.025em;line-height:1.12}
+.art .stand{margin-top:16px;font-size:16.5px;line-height:1.6;color:var(--muted)}
+.art .rule{margin:34px 0 0;border:0;border-top:1px solid var(--line)}
+.art .body p{margin-top:22px;font-size:16px;line-height:1.78;color:var(--ink2)}
+.art .body h2{margin-top:38px;font-size:16px;font-weight:700;letter-spacing:-.01em}
+.sketch{margin-top:22px;border:1px solid var(--line);padding:20px 22px 4px;background:#FCFBF8}
+.sketch .sklabel{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.sketch p{margin-top:10px !important;font-size:15px !important;line-height:1.7 !important}
+.foot{max-width:700px;margin:0 auto;padding:40px 0 60px}
+.foot .sig{font-size:15px;font-weight:700;letter-spacing:-.01em}
+.foot .sig span{color:var(--muted);font-weight:400}
+.foot .back{display:inline-block;margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);text-decoration:none}
+.foot .back:hover{color:var(--ink)}
+.nextprev{display:flex;justify-content:space-between;gap:24px;margin-top:26px;border-top:1px solid var(--line);padding-top:22px}
+.nextprev a{font-size:13.5px;color:var(--muted);text-decoration:none;max-width:46%;line-height:1.5}
+.nextprev a:hover{color:var(--ink)}
+.nextprev a .k{font-family:'JetBrains Mono',monospace;font-size:11px;display:block;margin-bottom:4px}
+.nextprev .nx{text-align:right;margin-left:auto}
+</style>
+</head>
+<body>
+<div class="nav"><a class="who" href="/about/">Siva Dheeraj</a><div class="links"><a href="/about/">About</a><a href="/blog/" class="on">Blog</a><a href="/portfolio/">Work</a></div></div>
+<div class="wrap"><div class="art">
+<div class="crumb"><a href="/blog/">NOTES ON HUMAN-AI INTERACTION</a> &middot; 05 / 10</div>
+<h1>Generative UI should keep its landmarks</h1>
+<p class="stand">Interfaces generated fresh for every task have a problem nobody prices in: nothing stays put.</p>
+<hr class="rule">
+<div class="body">
+<p>The dream is seductive: an interface generated for exactly this task, exactly fitted, thrown away after. No menus, no navigation, no forty features when you need two. The catch is that every screen is new, and on a new screen nothing is learnable. Muscle memory is how interfaces disappear from conscious thought. A UI that is never the same twice never disappears. You pay attention to it forever, and attention is the most expensive currency in any product.</p>
+<p>What we actually want is a fresh layout wrapped around stable landmarks. The way out is always top-right. The commitment is always bottom-center. Spatial consistency is not boring design; it is the load-bearing structure that lets everything else vary safely.</p>
+<h2>Small grammar, infinite sentences</h2>
+<p>Generated UI should compose from a few dozen known blocks - picker, table, timeline, compare, confirm - rather than inventing widgets per task. Users learn the alphabet once, and the model writes new words. Novelty belongs in the arrangement, never in the primitives.</p>
+<h2>Regeneration is a diff</h2>
+<p>When the interface changes underneath you, say what changed. "Since you were here: two options added, one removed, prices updated." Otherwise every refresh is a small betrayal, and users learn to distrust the ground they stand on.</p>
+<p>The goal is not an interface that is always new. It is an interface that is always familiar in its bones and always specific in its flesh.</p>
+</div>
+</div>
+<div class="foot">
+<div class="sig">Siva Dheeraj <span>&middot; November 2026</span></div>
+<a class="back" href="/blog/">&larr; All ten essays</a>
+<div class="nextprev"><a href="/blog/voice-is-not-a-transcript/"><span class="k">&larr; 04</span>Voice is not a transcript</a><a class="nx" href="/blog/steering-wheels-not-prompts/"><span class="k">06 &rarr;</span>Steering wheels, not prompts</a></div>
+</div>
+</div>
+</body>
+</html>

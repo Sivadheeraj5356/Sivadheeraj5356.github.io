@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voice is not a transcript | Siva Dheeraj</title>
+<meta name="description" content="Speech is the richest input we have, and the standard pipeline strips it for parts.">
+<link rel="canonical" href="https://sivadheeraj5356.github.io/blog/voice-is-not-a-transcript/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:ital,wght@0,400;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='5' fill='%2317150F'/%3E%3C/svg%3E">
+<style>
+:root{--paper:#FFFFFF;--ink:#17150F;--ink2:#232014;--muted:#6E6A5E;--line:#E8E4DA}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Sora',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--ink);color:var(--paper)}
+a{color:inherit}
+.nav{max-width:1060px;margin:0 auto;padding:26px 40px 0;display:flex;justify-content:space-between;align-items:baseline}
+.nav .who{font-size:14px;font-weight:700;letter-spacing:-.01em;text-decoration:none}
+.nav .links a{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);text-decoration:none;margin-left:22px;transition:color .2s}
+.nav .links a:hover{color:var(--ink)}
+.nav .links a.on{color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 40px}
+@media(max-width:820px){.nav{padding:20px 24px 0}.wrap{padding:0 24px}}
+
+.art{max-width:700px;margin:0 auto;padding:clamp(44px,8vh,84px) 0 20px}
+.crumb{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:.06em}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--ink)}
+.art h1{margin-top:22px;font-size:clamp(28px,3vw,38px);font-weight:800;letter-spacing:-.025em;line-height:1.12}
+.art .stand{margin-top:16px;font-size:16.5px;line-height:1.6;color:var(--muted)}
+.art .rule{margin:34px 0 0;border:0;border-top:1px solid var(--line)}
+.art .body p{margin-top:22px;font-size:16px;line-height:1.78;color:var(--ink2)}
+.art .body h2{margin-top:38px;font-size:16px;font-weight:700;letter-spacing:-.01em}
+.sketch{margin-top:22px;border:1px solid var(--line);padding:20px 22px 4px;background:#FCFBF8}
+.sketch .sklabel{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.sketch p{margin-top:10px !important;font-size:15px !important;line-height:1.7 !important}
+.foot{max-width:700px;margin:0 auto;padding:40px 0 60px}
+.foot .sig{font-size:15px;font-weight:700;letter-spacing:-.01em}
+.foot .sig span{color:var(--muted);font-weight:400}
+.foot .back{display:inline-block;margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);text-decoration:none}
+.foot .back:hover{color:var(--ink)}
+.nextprev{display:flex;justify-content:space-between;gap:24px;margin-top:26px;border-top:1px solid var(--line);padding-top:22px}
+.nextprev a{font-size:13.5px;color:var(--muted);text-decoration:none;max-width:46%;line-height:1.5}
+.nextprev a:hover{color:var(--ink)}
+.nextprev a .k{font-family:'JetBrains Mono',monospace;font-size:11px;display:block;margin-bottom:4px}
+.nextprev .nx{text-align:right;margin-left:auto}
+</style>
+</head>
+<body>
+<div class="nav"><a class="who" href="/about/">Siva Dheeraj</a><div class="links"><a href="/about/">About</a><a href="/blog/" class="on">Blog</a><a href="/portfolio/">Work</a></div></div>
+<div class="wrap"><div class="art">
+<div class="crumb"><a href="/blog/">NOTES ON HUMAN-AI INTERACTION</a> &middot; 04 / 10</div>
+<h1>Voice is not a transcript</h1>
+<p class="stand">Speech is the richest input we have, and the standard pipeline strips it for parts.</p>
+<hr class="rule">
+<div class="body">
+<p>The standard voice pipeline is speech to text, text to chatbot, chatbot to text, text to speech. At every arrow, something is thrown away. The hesitation before a yes. The emphasis that flips a meaning. The mid-sentence language switch that tells you where the emotion lives.</p>
+<p>A hesitant "haan" and a firm "haan" transcribe to the same word. They should not get the same response. The first deserves "want me to walk through the options?", the second deserves action. An interface that cannot hear the difference understood the words and missed the message.</p>
+<h2>Turn-taking is the whole game</h2>
+<p>Humans interrupt each other constantly and gracefully. Barge-in is not rudeness; it is how a conversation breathes. An agent that cannot be interrupted mid-sentence is not a conversationalist, it is a lecture with a microphone. The cost of interrupting should be modeled and made visible: cheap while the agent is listing options, expensive mid-commitment.</p>
+<h2>India is the stress test</h2>
+<p>Hundreds of millions of people speak better than they type, and they speak in two languages at once. Code-mixed Hinglish is not an edge case to tolerate; it is the default to design for. Voice is the only mainstream interface that does not demand the user first become literate in the machine's medium. Whoever gets prosody, interruption and code-switching right does not just win a feature. They unlock the next half-billion users.</p>
+<p>The microphone hears more than words. Interfaces that listen only to the transcript are deaf in one ear.</p>
+</div>
+</div>
+<div class="foot">
+<div class="sig">Siva Dheeraj <span>&middot; November 2026</span></div>
+<a class="back" href="/blog/">&larr; All ten essays</a>
+<div class="nextprev"><a href="/blog/the-audit-trail-is-the-interface/"><span class="k">&larr; 03</span>The audit trail is the interface</a><a class="nx" href="/blog/generative-ui-landmarks/"><span class="k">05 &rarr;</span>Generative UI should keep its landmarks</a></div>
+</div>
+</div>
+</body>
+</html>

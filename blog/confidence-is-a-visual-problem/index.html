@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confidence is a visual problem | Siva Dheeraj</title>
+<meta name="description" content="Chat renders a guess and a certainty in the same font. That is a design failure, not a model failure.">
+<link rel="canonical" href="https://sivadheeraj5356.github.io/blog/confidence-is-a-visual-problem/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:ital,wght@0,400;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='5' fill='%2317150F'/%3E%3C/svg%3E">
+<style>
+:root{--paper:#FFFFFF;--ink:#17150F;--ink2:#232014;--muted:#6E6A5E;--line:#E8E4DA}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Sora',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--ink);color:var(--paper)}
+a{color:inherit}
+.nav{max-width:1060px;margin:0 auto;padding:26px 40px 0;display:flex;justify-content:space-between;align-items:baseline}
+.nav .who{font-size:14px;font-weight:700;letter-spacing:-.01em;text-decoration:none}
+.nav .links a{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);text-decoration:none;margin-left:22px;transition:color .2s}
+.nav .links a:hover{color:var(--ink)}
+.nav .links a.on{color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 40px}
+@media(max-width:820px){.nav{padding:20px 24px 0}.wrap{padding:0 24px}}
+
+.art{max-width:700px;margin:0 auto;padding:clamp(44px,8vh,84px) 0 20px}
+.crumb{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:.06em}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--ink)}
+.art h1{margin-top:22px;font-size:clamp(28px,3vw,38px);font-weight:800;letter-spacing:-.025em;line-height:1.12}
+.art .stand{margin-top:16px;font-size:16.5px;line-height:1.6;color:var(--muted)}
+.art .rule{margin:34px 0 0;border:0;border-top:1px solid var(--line)}
+.art .body p{margin-top:22px;font-size:16px;line-height:1.78;color:var(--ink2)}
+.art .body h2{margin-top:38px;font-size:16px;font-weight:700;letter-spacing:-.01em}
+.sketch{margin-top:22px;border:1px solid var(--line);padding:20px 22px 4px;background:#FCFBF8}
+.sketch .sklabel{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.sketch p{margin-top:10px !important;font-size:15px !important;line-height:1.7 !important}
+.foot{max-width:700px;margin:0 auto;padding:40px 0 60px}
+.foot .sig{font-size:15px;font-weight:700;letter-spacing:-.01em}
+.foot .sig span{color:var(--muted);font-weight:400}
+.foot .back{display:inline-block;margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);text-decoration:none}
+.foot .back:hover{color:var(--ink)}
+.nextprev{display:flex;justify-content:space-between;gap:24px;margin-top:26px;border-top:1px solid var(--line);padding-top:22px}
+.nextprev a{font-size:13.5px;color:var(--muted);text-decoration:none;max-width:46%;line-height:1.5}
+.nextprev a:hover{color:var(--ink)}
+.nextprev a .k{font-family:'JetBrains Mono',monospace;font-size:11px;display:block;margin-bottom:4px}
+.nextprev .nx{text-align:right;margin-left:auto}
+</style>
+</head>
+<body>
+<div class="nav"><a class="who" href="/about/">Siva Dheeraj</a><div class="links"><a href="/about/">About</a><a href="/blog/" class="on">Blog</a><a href="/portfolio/">Work</a></div></div>
+<div class="wrap"><div class="art">
+<div class="crumb"><a href="/blog/">NOTES ON HUMAN-AI INTERACTION</a> &middot; 10 / 10</div>
+<h1>Confidence is a visual problem</h1>
+<p class="stand">Chat renders a guess and a certainty in the same font. That is a design failure, not a model failure.</p>
+<hr class="rule">
+<div class="body">
+<p>Human speech carries calibration for free: "I think", "obviously", "no idea, but". A language model produces the same fluent declarative sentence at 99 percent confidence and at 51. The transcript launders uncertainty into authority, and the interface does nothing to repair it. So users learn calibration the hard way: by being burned, then by trusting nothing, which is its own failure.</p>
+<h2>Confidence belongs in the rendering</h2>
+<p>Not in the prompt, in the pixels. Lower-confidence claims in lighter ink. Claims linked to their sources when sources exist, and visibly sourceless when none do. The reader should be able to feel the epistemics of a paragraph before evaluating a single word of it.</p>
+<h2>Progressive disclosure of doubt</h2>
+<p>Answer first, caveats one tap away: "what I might be missing." The user who wants the headline gets the headline. The user about to bet money gets the fold. And sometimes the right rendering is the honest ellipsis: "I do not know, and here is what would settle it."</p>
+<p>An AI that can say that legibly will be trusted with more, not less. The interface's job is not to make the model look certain. It is to make certainty and doubt readable at a glance, so that trust lands exactly where it was earned.</p>
+</div>
+</div>
+<div class="foot">
+<div class="sig">Siva Dheeraj <span>&middot; November 2026</span></div>
+<a class="back" href="/blog/">&larr; All ten essays</a>
+<div class="nextprev"><a href="/blog/the-group-chat-problem/"><span class="k">&larr; 09</span>The group chat is the hardest problem in AI UX</a></div>
+</div>
+</div>
+</body>
+</html>
