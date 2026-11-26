@@ -50,37 +50,274 @@ a{color:inherit}
 <div class="wrap">
 <div class="head">
 <h1>Artifacts</h1>
-<p class="bio">What I build, what I fix, what I measure. Each artifact is a real thing: a merged upstream PR, a working tool, or a measured experiment. Code and evidence linked on every one.</p>
+<p class="bio">What I build, what I fix, what I measure. Every artifact is a real thing: a merged upstream PR, an open fix under review, a benchmark, or a working product. Code and evidence linked on every one.</p>
 </div>
 <div class="alist">
 
 <div class="art">
 <span class="no">01</span>
 <div>
-<h2>Fixing a hang in Minigrid's Hilbert-curve heuristic above 16x16</h2>
-<div class="meta"><span class="tag">upstream, merged</span>Nov 2026</div>
-<p>Farama Foundation's Minigrid is one of the standard RL benchmark environments. Its goal-position heuristic silently hangs on grids larger than 16x16. Traced it to the Hilbert-curve traversal ordering, wrote a reproduction, and patched the traversal so large grids resolve. Merged upstream the same day.</p>
+<h2>Minigrid #548: fixing a hang in the Hilbert-curve heuristic above 16x16</h2>
+<div class="meta"><span class="tag">oss, merged</span>Nov 2026</div>
+<p>Farama Foundation's Minigrid is a standard RL benchmark environment. Its goal-position heuristic silently hung on grids larger than 16x16. Traced it to the Hilbert-curve traversal ordering, wrote a reproduction, and patched the traversal so large grids resolve. Merged upstream the same day.</p>
 <ul>
 <li>PR - <a href="https://github.com/Farama-Foundation/Minigrid/pull/548" rel="noopener noreferrer" target="_blank">Farama-Foundation/Minigrid#548</a></li>
-<li>Follow-up - <a href="https://github.com/Farama-Foundation/Minigrid/pull/549" rel="noopener noreferrer" target="_blank">#549, spiral heuristic on non-square grids</a></li>
 </ul>
 </div>
 </div>
+
 
 <div class="art">
 <span class="no">02</span>
 <div>
-<h2>Daily upstream fixes across RL envs, evals and training libs</h2>
-<div class="meta"><span class="tag">oss streak</span>Oct - Nov 2026</div>
-<p>A running streak of real bug-fix PRs into the libraries people actually train and evaluate on: InstaDeep Jumanji (tetris time-limit truncation, rubiks_cube), huggingface lighteval (Probability metric aggregating over gold choices), d3rlpy (crash fix), rlberry (MountainCar reset crash), tianshou, promptfoo, deepeval, Giskard, Weave. Every PR reproduces the bug first, patches it, and runs the project's own tests before opening.</p>
+<h2>gymnax #128: per-environment seeds in the vector Gymnasium wrapper</h2>
+<div class="meta"><span class="tag">oss, merged</span>Nov 2026</div>
+<p>Robert Lange's gymnax runs RL environments in JAX on GPU/TPU. The vector wrapper shared one seed across batched environments, collapsing diversity in rollouts. Added per-environment seeding so each lane randomizes independently. Merged.</p>
 <ul>
-<li>Profile - <a href="https://github.com/Sivadheeraj5356" rel="noopener noreferrer" target="_blank">github.com/Sivadheeraj5356</a></li>
+<li>PR - <a href="https://github.com/RobertTLange/gymnax/pull/128" rel="noopener noreferrer" target="_blank">RobertTLange/gymnax#128</a></li>
 </ul>
 </div>
 </div>
 
+
 <div class="art">
 <span class="no">03</span>
+<div>
+<h2>gymnax #129: fixing Brax adapter properties and vector dimensions</h2>
+<div class="meta"><span class="tag">oss, merged</span>Nov 2026</div>
+<p>The Brax adapter reported wrong vector dimensions and properties for converted environments, breaking downstream wrappers. Corrected the adapter so converted spaces match the underlying physics envs. Merged.</p>
+<ul>
+<li>PR - <a href="https://github.com/RobertTLange/gymnax/pull/129" rel="noopener noreferrer" target="_blank">RobertTLange/gymnax#129</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">04</span>
+<div>
+<h2>braintrust-sdk-javascript #2767: serializing span-cache disk writes</h2>
+<div class="meta"><span class="tag">oss, merged</span>Nov 2026</div>
+<p>Braintrust's eval SDK could corrupt its on-disk span cache when writes interleaved. Serialized the disk writes so concurrent spans can't tear the cache file. Merged.</p>
+<ul>
+<li>PR - <a href="https://github.com/braintrustdata/braintrust-sdk-javascript/pull/2767" rel="noopener noreferrer" target="_blank">braintrustdata/braintrust-sdk-javascript#2767</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">05</span>
+<div>
+<h2>EvalScope #2115: rejecting Responses streams without a terminal event</h2>
+<div class="meta"><span class="tag">oss, merged</span>Nov 2026</div>
+<p>ModelScope's LLM benchmark harness hung waiting on streams that never send a completion event. The perf runner now rejects those streams instead of blocking the benchmark. Merged.</p>
+<ul>
+<li>PR - <a href="https://github.com/modelscope/evalscope/pull/2115" rel="noopener noreferrer" target="_blank">modelscope/evalscope#2115</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">06</span>
+<div>
+<h2>category_encoders #572: LeaveOneOutEncoder with mixed-type unseen labels</h2>
+<div class="meta"><span class="tag">oss, merged</span>Nov 2026</div>
+<p>scikit-learn-contrib's category_encoders broke on unseen labels of mixed types in leave-one-out encoding. Fixed the handling so unseen categories encode cleanly. Merged.</p>
+<ul>
+<li>PR - <a href="https://github.com/scikit-learn-contrib/category_encoders/pull/572" rel="noopener noreferrer" target="_blank">scikit-learn-contrib/category_encoders#572</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">07</span>
+<div>
+<h2>Minigrid #546: reading the README as UTF-8 in setup.py</h2>
+<div class="meta"><span class="tag">oss, merged</span>Nov 2026</div>
+<p>pip install -e . failed on Windows because setup.py read the README with the platform default encoding. Read it as UTF-8 explicitly. Merged.</p>
+<ul>
+<li>PR - <a href="https://github.com/Farama-Foundation/Minigrid/pull/546" rel="noopener noreferrer" target="_blank">Farama-Foundation/Minigrid#546</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">08</span>
+<div>
+<h2>runable-resume-bench: crash and resume tests for long-running jobs</h2>
+<div class="meta"><span class="tag">benchmark</span>Oct 2026</div>
+<p>TypeScript benchmark that kills jobs mid-run and verifies they resume correctly. A working eval harness with fixtures, not a slide.</p>
+<ul>
+<li>Repo - <a href="https://github.com/Sivadheeraj5356/runable-resume-bench" rel="noopener noreferrer" target="_blank">runable-resume-bench</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">09</span>
+<div>
+<h2>crux-creative-bench: an eval suite for ad-creative models</h2>
+<div class="meta"><span class="tag">benchmark</span>Oct 2026</div>
+<p>Python eval suite for creative tagging, fatigue detection and A/B winner picks, with synthetic fixtures so the whole suite runs offline.</p>
+<ul>
+<li>Repo - <a href="https://github.com/Sivadheeraj5356/crux-creative-bench" rel="noopener noreferrer" target="_blank">crux-creative-bench</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">10</span>
+<div>
+<h2>jumanji #323-#329: time-limit truncation across seven environments</h2>
+<div class="meta"><span class="tag">oss, under review</span>Nov 2026</div>
+<p>InstaDeep's Jumanji terminated episodes where RL semantics say truncate when the time limit hits - tetris, rubiks_cube, sokoban, sliding_tile_puzzle, pac_man, maze and snake. One reproduction, seven minimal fixes, one PR per environment.</p>
+<ul>
+<li>First PR - <a href="https://github.com/instadeepai/jumanji/pull/325" rel="noopener noreferrer" target="_blank">instadeepai/jumanji#325</a></li>
+<li>Series - <a href="https://github.com/instadeepai/jumanji/pulls?q=author%3ASivadheeraj5356" rel="noopener noreferrer" target="_blank">#323-#329</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">11</span>
+<div>
+<h2>lighteval #1461: the Probability metric should aggregate over gold choices</h2>
+<div class="meta"><span class="tag">oss, under review</span>Nov 2026</div>
+<p>Hugging Face's lighteval computed the Probability metric over all choices, not the gold ones, skewing scores. Fixed the aggregation.</p>
+<ul>
+<li>PR - <a href="https://github.com/huggingface/lighteval/pull/1461" rel="noopener noreferrer" target="_blank">huggingface/lighteval#1461</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">12</span>
+<div>
+<h2>tianshou #1322: excluding NaNs from moving-average statistics</h2>
+<div class="meta"><span class="tag">oss, under review</span>Nov 2026</div>
+<p>THU's RL library let NaNs poison moving-average training stats. Excluded them; bot review caught an edge case with Fraction/Decimal inputs, fixed that too, all checks green.</p>
+<ul>
+<li>PR - <a href="https://github.com/thu-ml/tianshou/pull/1322" rel="noopener noreferrer" target="_blank">thu-ml/tianshou#1322</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">13</span>
+<div>
+<h2>sample-factory #339: batch and action axes in deterministic tuple actions</h2>
+<div class="meta"><span class="tag">oss, under review</span>Nov 2026</div>
+<p>Deterministic tuple actions mixed up agents in the fast RL framework. A 2-line axis fix with 19 tests.</p>
+<ul>
+<li>PR - <a href="https://github.com/alex-petrenko/sample-factory/pull/339" rel="noopener noreferrer" target="_blank">alex-petrenko/sample-factory#339</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">14</span>
+<div>
+<h2>inngest-py #409: preserving union order in the Pydantic adapter cache</h2>
+<div class="meta"><span class="tag">oss, under review</span>Nov 2026</div>
+<p>The Pydantic adapter cache reordered union members, changing validation behaviour. Preserved declaration order in the cache.</p>
+<ul>
+<li>PR - <a href="https://github.com/inngest/inngest-py/pull/409" rel="noopener noreferrer" target="_blank">inngest/inngest-py#409</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">15</span>
+<div>
+<h2>Gymnasium-Robotics #367: ManySegmentAnt joint and actuator indices</h2>
+<div class="meta"><span class="tag">oss, under review</span>Nov 2026</div>
+<p>Farama's robotics suite indexed joints and actuators incorrectly on ManySegmentAnt. Fixed the index mapping.</p>
+<ul>
+<li>PR - <a href="https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/367" rel="noopener noreferrer" target="_blank">Farama-Foundation/Gymnasium-Robotics#367</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">16</span>
+<div>
+<h2>robosuite #851: uniform position interpolation steps</h2>
+<div class="meta"><span class="tag">oss, under review</span>Nov 2026</div>
+<p>ARISE Initiative's robotics simulator stepped position interpolation unevenly. Made the steps uniform.</p>
+<ul>
+<li>PR - <a href="https://github.com/ARISE-Initiative/robosuite/pull/851" rel="noopener noreferrer" target="_blank">ARISE-Initiative/robosuite#851</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">17</span>
+<div>
+<h2>PrimeIntellect verifiers #2945, #2965: two verifier correctness fixes</h2>
+<div class="meta"><span class="tag">oss, under review</span>Nov 2026</div>
+<p>Rejected tool methods that shadow ServerBase attributes, and rejected proposer_solver labels the solvers unanimously contradict.</p>
+<ul>
+<li>PR - <a href="https://github.com/PrimeIntellect-ai/verifiers/pull/2945" rel="noopener noreferrer" target="_blank">#2945</a></li>
+<li>PR - <a href="https://github.com/PrimeIntellect-ai/verifiers/pull/2965" rel="noopener noreferrer" target="_blank">#2965</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">18</span>
+<div>
+<h2>deepeval #3527: replacing legacy HF dataset ids in five benchmarks</h2>
+<div class="meta"><span class="tag">oss, under review</span>Nov 2026</div>
+<p>Confident AI's deepeval referenced renamed Hugging Face datasets in ARC, GSM8K, TruthfulQA, BoolQ and HumanEval. Updated the ids so the benchmarks load.</p>
+<ul>
+<li>PR - <a href="https://github.com/confident-ai/deepeval/pull/3527" rel="noopener noreferrer" target="_blank">confident-ai/deepeval#3527</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">19</span>
+<div>
+<h2>Helicone #5852: detecting customer-portal API keys with -gov and -rl prefixes</h2>
+<div class="meta"><span class="tag">oss, under review</span>Nov 2026</div>
+<p>The API-key regex missed the -gov and -rl prefixes, so those keys failed detection. Extended the pattern.</p>
+<ul>
+<li>PR - <a href="https://github.com/Helicone/helicone/pull/5852" rel="noopener noreferrer" target="_blank">Helicone/helicone#5852</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">20</span>
+<div>
+<h2>Minigrid #549: the spiral heuristic on non-square grids</h2>
+<div class="meta"><span class="tag">oss, under review</span>Nov 2026</div>
+<p>Follow-up to #548: the spiral location heuristic left cells unassigned on non-square grids. Fix under review.</p>
+<ul>
+<li>PR - <a href="https://github.com/Farama-Foundation/Minigrid/pull/549" rel="noopener noreferrer" target="_blank">Farama-Foundation/Minigrid#549</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">21</span>
 <div>
 <h2>AgentForge: an agent builder with auto-grading</h2>
 <div class="meta"><span class="tag">system</span>2026</div>
@@ -92,20 +329,9 @@ a{color:inherit}
 </div>
 </div>
 
-<div class="art">
-<span class="no">04</span>
-<div>
-<h2>runable-resume-bench: crash and resume tests for long-running jobs</h2>
-<div class="meta"><span class="tag">benchmark</span>Oct 2026</div>
-<p>TypeScript benchmark that kills jobs mid-run and verifies they resume correctly. Built as a working eval harness with fixtures, not a slide.</p>
-<ul>
-<li>Repo - <a href="https://github.com/Sivadheeraj5356/runable-resume-bench" rel="noopener noreferrer" target="_blank">runable-resume-bench</a></li>
-</ul>
-</div>
-</div>
 
 <div class="art">
-<span class="no">05</span>
+<span class="no">22</span>
 <div>
 <h2>answerthis-citation-atlas: citation graphs from OpenAlex</h2>
 <div class="meta"><span class="tag">tool</span>Oct 2026</div>
@@ -116,8 +342,9 @@ a{color:inherit}
 </div>
 </div>
 
+
 <div class="art">
-<span class="no">06</span>
+<span class="no">23</span>
 <div>
 <h2>StockVaani: Indian-language voice order notes for small shops</h2>
 <div class="meta"><span class="tag">voice</span>Nov 2026</div>
@@ -128,8 +355,9 @@ a{color:inherit}
 </div>
 </div>
 
+
 <div class="art">
-<span class="no">07</span>
+<span class="no">24</span>
 <div>
 <h2>PlayGarden: 24 real-time multiplayer games</h2>
 <div class="meta"><span class="tag">live product</span>Nov 2026</div>
@@ -139,6 +367,7 @@ a{color:inherit}
 </ul>
 </div>
 </div>
+
 
 </div>
 </div>
