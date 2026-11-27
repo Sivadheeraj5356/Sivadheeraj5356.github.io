@@ -124,6 +124,46 @@ a{color:inherit}
 <div class="art">
 <span class="no">06</span>
 <div>
+<h2>category_encoders #576: LeaveOneOutEncoder with missing integer categories</h2>
+<div class="meta"><span class="tag">oss, merged</span>Nov 2026</div>
+<p>Integer category columns with gaps in their labels crashed leave-one-out encoding with a dtype conversion error. Missing integer categories are now preserved through the conversion. Merged.</p>
+<ul>
+<li>PR - <a href="https://github.com/scikit-learn-contrib/category_encoders/pull/576" rel="noopener noreferrer" target="_blank">scikit-learn-contrib/category_encoders#576</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">07</span>
+<div>
+<h2>tianshou #1322: excluding NaNs from moving-average statistics</h2>
+<div class="meta"><span class="tag">oss, merged</span>Nov 2026</div>
+<p>Tianshou is a widely used PyTorch RL library. Its moving-average statistics let NaN values leak into the running numbers and corrupt them. NaNs are now excluded from the computation. Merged.</p>
+<ul>
+<li>PR - <a href="https://github.com/thu-ml/tianshou/pull/1322" rel="noopener noreferrer" target="_blank">thu-ml/tianshou#1322</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">08</span>
+<div>
+<h2>EvalScope: two merged fixes in the perf benchmark runner</h2>
+<div class="meta"><span class="tag">oss, merged</span>Nov 2026</div>
+<p>#2221: complete JSON request bodies in line_by_line datasets got overwritten with CLI defaults, so the benchmark sent a different workload than the file described - explicit body fields now win. #2231: plain-text lines that parse as JSON scalars (42, true, null) were treated as request payloads and broke chat requests - they now fall back to the plain-text prompt path. Both merged.</p>
+<ul>
+<li>PR - <a href="https://github.com/modelscope/evalscope/pull/2221" rel="noopener noreferrer" target="_blank">#2221, Responses request body fields</a></li>
+<li>PR - <a href="https://github.com/modelscope/evalscope/pull/2231" rel="noopener noreferrer" target="_blank">#2231, JSON scalar prompts as text</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="art">
+<span class="no">09</span>
+<div>
 <h2>runable-resume-bench: crash and resume tests for long-running jobs</h2>
 <div class="meta"><span class="tag">benchmark</span>Oct 2026</div>
 <p>TypeScript benchmark that kills jobs mid-run and verifies they resume correctly. A working eval harness with fixtures, not a slide.</p>
@@ -135,7 +175,7 @@ a{color:inherit}
 
 
 <div class="art">
-<span class="no">07</span>
+<span class="no">10</span>
 <div>
 <h2>crux-creative-bench: an eval suite for ad-creative models</h2>
 <div class="meta"><span class="tag">benchmark</span>Oct 2026</div>
@@ -148,7 +188,7 @@ a{color:inherit}
 
 
 <div class="art">
-<span class="no">08</span>
+<span class="no">11</span>
 <div>
 <h2>AgentForge: an agent builder with auto-grading</h2>
 <div class="meta"><span class="tag">system</span>2026</div>
@@ -162,7 +202,7 @@ a{color:inherit}
 
 
 <div class="art">
-<span class="no">09</span>
+<span class="no">12</span>
 <div>
 <h2>answerthis-citation-atlas: citation graphs from OpenAlex</h2>
 <div class="meta"><span class="tag">tool</span>Oct 2026</div>
@@ -175,7 +215,7 @@ a{color:inherit}
 
 
 <div class="art">
-<span class="no">10</span>
+<span class="no">13</span>
 <div>
 <h2>StockVaani: Indian-language voice order notes for small shops</h2>
 <div class="meta"><span class="tag">voice</span>Nov 2026</div>
@@ -188,7 +228,7 @@ a{color:inherit}
 
 
 <div class="art">
-<span class="no">11</span>
+<span class="no">14</span>
 <div>
 <h2>PlayGarden: 24 real-time multiplayer games</h2>
 <div class="meta"><span class="tag">live product</span>Nov 2026</div>
