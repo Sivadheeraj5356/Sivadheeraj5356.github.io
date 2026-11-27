@@ -71,12 +71,14 @@ a{color:inherit}
 <div class="art">
 <span class="no">02</span>
 <div>
-<h2>gymnax: two merged fixes in Robert Lange's JAX RL environments</h2>
+<h2>gymnax: four merged fixes in Robert Lange's JAX RL environments</h2>
 <div class="meta"><span class="tag">oss, merged</span>Nov 2026</div>
-<p>gymnax runs RL environments in JAX on GPU/TPU. #128: the vector wrapper shared one seed across batched environments, collapsing rollout diversity - added per-environment seeding. #129: the Brax adapter reported wrong vector dimensions and properties, breaking downstream wrappers - corrected the adapter.</p>
+<p>gymnax runs RL environments in JAX on GPU/TPU. #128: the vector wrapper shared one seed across batched environments, collapsing rollout diversity - added per-environment seeding. #129: the Brax adapter reported wrong vector dimensions and properties, breaking downstream wrappers - corrected the adapter. #130: multidimensional Box bounds were not broadcast during Gymnasium space conversion - broadcast them to the right shape. #131: the Gymnasium wrapper shared one metadata dict across environments, so one env's entries leaked into the rest - each environment now keeps independent metadata. All four merged.</p>
 <ul>
 <li>PR - <a href="https://github.com/RobertTLange/gymnax/pull/128" rel="noopener noreferrer" target="_blank">#128, per-environment seeds</a></li>
 <li>PR - <a href="https://github.com/RobertTLange/gymnax/pull/129" rel="noopener noreferrer" target="_blank">#129, Brax adapter dimensions</a></li>
+<li>PR - <a href="https://github.com/RobertTLange/gymnax/pull/130" rel="noopener noreferrer" target="_blank">#130, broadcast Box bounds</a></li>
+<li>PR - <a href="https://github.com/RobertTLange/gymnax/pull/131" rel="noopener noreferrer" target="_blank">#131, independent wrapper metadata</a></li>
 </ul>
 </div>
 </div>
